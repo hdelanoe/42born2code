@@ -12,7 +12,6 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define BUFF_SIZE 42
 # include <string.h>
 
 void			*ft_memset(void *s, int c, size_t n);
