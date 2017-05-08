@@ -6,7 +6,7 @@
 /*   By: hdelanoe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 12:06:03 by hdelanoe          #+#    #+#             */
-/*   Updated: 2017/05/02 21:05:48 by hdelanoe         ###   ########.fr       */
+/*   Updated: 2017/05/08 10:01:18 by hdelanoe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	char	*str;
 	size_t	len;
 
+	if (!s1)
+		return ((char*)s2);
+	if (!s2)
+		return ((char*)s1);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	str = (char*)malloc(sizeof(char) * len + 1);
 	if (str == NULL)
