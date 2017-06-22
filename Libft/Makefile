@@ -6,7 +6,7 @@
 #    By: hdelanoe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/10 15:45:37 by hdelanoe          #+#    #+#              #
-#    Updated: 2017/05/05 04:15:51 by hdelanoe         ###   ########.fr        #
+#    Updated: 2017/06/14 18:30:11 by hdelanoe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,8 +52,16 @@ SRC =	ft_memccpy.c \
 		ft_striteri.c \
 		ft_strchr.c	\
 		ft_strlen.c \
+		ft_size_bin.c \
 		ft_atoi.c \
 		ft_itoa.c \
+		ft_utoa.c \
+		ft_llutoa.c \
+		ft_lltoa.c \
+		ft_itoa_base.c \
+		ft_ltoa_base.c \
+		ft_ftoa.c \
+		ft_lftoa.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
 		ft_isascii.c \
@@ -82,33 +90,28 @@ SRC =	ft_memccpy.c \
 		ft_lstfind.c \
 		ft_lstrev.c \
 		ft_lstclr.c \
-		get_next_line.c \
 
 OBJ	=	$(SRC:.c=.o)
-
-
 CC	= gcc
-
 FLAGS = -Wall -Werror -Wextra
+RM = rm -rf
+CG = \033[92m
+CY = \033[93m
+CE = \033[0m
 
-
-# compile libft.a
 all	: $(NAME)
-	
 $(NAME)	: $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
-$(OBJ) 	: $(SRC) 
-	$(CC) $(FLAGS) -c $(SRC)
+$(OBJ):
+	@$(CC) $(FLAGS) -c $(SRC)
 
-# supprime les objets
 clean	: 
-	rm -rf $(OBJ)
+	@$(RM) $(OBJ)
 
-# supprime les objets et la lib
 fclean	: clean
-	rm -rf $(NAME)
+	@$(RM) $(NAME)
+	@echo "\033[K$(CY)[LIBFT] : $(CE) $(CG)Cleaning Library $(CE)";
 
-# fait place net et compile a nouveau
 re		: fclean all

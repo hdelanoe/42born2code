@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_size_bin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdelanoe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 19:39:57 by hdelanoe          #+#    #+#             */
-/*   Updated: 2017/04/13 12:18:00 by hdelanoe         ###   ########.fr       */
+/*   Created: 2017/06/07 15:34:57 by hdelanoe          #+#    #+#             */
+/*   Updated: 2017/06/07 18:35:54 by hdelanoe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+int	ft_size_bin(unsigned int value)
 {
-	if (32 <= c && c <= 126)
-		return (1);
-	else
-		return (0);
+	int i;
+
+	i = 1;
+	while (value / 2 > 0)
+	{
+		value /= 2;
+		i++;
+	}
+	return (i);
 }

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lltoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdelanoe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/12 16:54:48 by hdelanoe          #+#    #+#             */
-/*   Updated: 2017/06/13 22:36:43 by hdelanoe         ###   ########.fr       */
+/*   Created: 2017/06/12 13:32:07 by hdelanoe          #+#    #+#             */
+/*   Updated: 2017/06/13 23:30:13 by hdelanoe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-static int	ft_itoalen(long n)
+static int	ft_itoalen(long long n)
 {
 	int i;
 
@@ -26,7 +27,7 @@ static int	ft_itoalen(long n)
 	return (i);
 }
 
-static char	*ft_str(long nb, int len, int neg)
+static char	*ft_str(long long nb, int len, int neg)
 {
 	char	*str;
 	int		i;
@@ -49,23 +50,28 @@ static char	*ft_str(long nb, int len, int neg)
 	return (str);
 }
 
-char		*ft_itoa(int n)
+char		*ft_lltoa(long long n)
 {
-	char	*str;
-	int		i;
-	int		neg;
-	long	nb;
+	char				*str;
+	int					i;
+	int					neg;
+	unsigned long long	nb;
 
-	nb = (long)n;
-	i = 0;
+	nb = (unsigned long long)n;
 	neg = 0;
-	if (nb < 0)
+	i = 0;
+	if (nb == -9223372036854775808ull)
+	{
+		str = ft_strdup("-9223372036854775808");
+		return (str);
+	}
+	if (n < 0)
 	{
 		neg++;
 		i++;
-		nb = -nb;
+		n = -n;
 	}
-	i += ft_itoalen(nb);
-	str = ft_str(nb, i, neg);
+	i += ft_itoalen(n);
+	str = ft_str(n, i, neg);
 	return (str);
 }

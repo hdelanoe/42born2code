@@ -6,7 +6,7 @@
 /*   By: hdelanoe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/10 18:17:46 by hdelanoe          #+#    #+#             */
-/*   Updated: 2017/05/05 04:13:27 by hdelanoe         ###   ########.fr       */
+/*   Updated: 2017/06/14 18:27:28 by hdelanoe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 # define LIBFT_H
 # include <string.h>
 
+typedef struct	s_octect
+{
+	unsigned int	u;
+	unsigned int	d;
+	unsigned int	t;
+	unsigned int	q;
+}				t_octet;
 void			*ft_memset(void *s, int c, size_t n);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
@@ -55,8 +62,16 @@ char			*ft_strjoin(const char *s1, const char *s2);
 char			*ft_strtrim(const char *s);
 char			**ft_strsplit(const char *s, char c);
 char			*ft_strrev(char *s);
+int				ft_size_bin(unsigned int value);
 int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
+char			*ft_utoa(unsigned int n, int base);
+char			*ft_llutoa(unsigned long long n, int base);
+char			*ft_lltoa(long long n);
+char			*ft_itoa_base(unsigned int n, int base, int up);
+char			*ft_ltoa_base(unsigned long n, int base, int up);
+char			*ft_ftoa(double value, int accur);
+char			*ft_lftoa(long double value, int accur);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_isalnum(int c);
@@ -65,6 +80,7 @@ int				ft_isprint(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 void			ft_putchar(unsigned char c);
+void			ft_putwchar(unsigned int w);
 void			ft_putstr(const char *s);
 void			ft_putendl(const char *s);
 void			ft_putnbr(int n);

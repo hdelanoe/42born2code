@@ -1,32 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdelanoe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/12 16:54:48 by hdelanoe          #+#    #+#             */
-/*   Updated: 2017/06/13 22:36:43 by hdelanoe         ###   ########.fr       */
+/*   Created: 2017/06/06 15:57:08 by hdelanoe          #+#    #+#             */
+/*   Updated: 2017/06/13 18:48:46 by hdelanoe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static int	ft_itoalen(long n)
+static int	ft_itoalen(unsigned long n, int base)
 {
 	int i;
 
 	i = 1;
-	while (n / 10 > 0)
+	while (n / base > 0)
 	{
-		n /= 10;
+		n /= base;
 		i++;
 	}
 	return (i);
 }
 
-static char	*ft_str(long nb, int len, int neg)
+static char	goa(unsigned long nb, int up)
+{
+	unsigned long	i;
+	char			*str;
+	char			*upstr;
+
+	i = 0;
+	str = "0123456789abcdef";
+	upstr = "0123456789ABCDEF";
+	while (i < nb)
+		i++;
+	if (up)
+		return (upstr[i]);
+	else
+		return (str[i]);
+}
+
+static char	*ft_str(unsigned long nb, int len, int base, int up)
 {
 	char	*str;
 	int		i;
@@ -36,36 +53,24 @@ static char	*ft_str(long nb, int len, int neg)
 		return (NULL);
 	str[i] = '\0';
 	i--;
-	while (nb / 10 != 0)
+	while (nb / base != 0)
 	{
-		str[i] = nb % 10 + '0';
-		nb = nb / 10;
+		str[i] = goa(nb % base, up);
+		nb = nb / base;
 		i--;
 	}
-	str[i] = nb % 10 + '0';
-	i--;
-	if (neg == 1)
-		str[i] = '-';
+	str[i] = goa(nb % base, up);
 	return (str);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa_base(unsigned int n, int base, int up)
 {
-	char	*str;
-	int		i;
-	int		neg;
-	long	nb;
+	char			*str;
+	unsigned long	nb;
+	int				i;
 
-	nb = (long)n;
-	i = 0;
-	neg = 0;
-	if (nb < 0)
-	{
-		neg++;
-		i++;
-		nb = -nb;
-	}
-	i += ft_itoalen(nb);
-	str = ft_str(nb, i, neg);
+	nb = (unsigned long)n;
+	i = ft_itoalen(nb, base);
+	str = ft_str(nb, i, base, up);
 	return (str);
 }
