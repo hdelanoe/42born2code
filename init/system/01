@@ -1,0 +1,3 @@
+Le plus simple pour connaitre la version installee est de lire le fichier /etc/issue
+Pour avoir un peu plus de precision on peu lire le fichier /etc/debian_version
+Pour aller plus loin, on peu lire le fichier /etc/os-release

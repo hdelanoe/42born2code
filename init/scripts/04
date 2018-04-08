@@ -1,0 +1,7 @@
+FILENAME="/etc/crontab"
+MODIF=$(date -r ${FILENAME} '+%d/%m/%Y %H:%M')
+DATE=/scripts/check_log
+if [ "${MODIF}" != echo"${DATE}" ]; then
+	echo "Alerte, le fichier ${FILENAME} a ete modifie le ${MODIF}" | mail -u root";
+	echo "${MODIF}" &> /scripts/check_log
+fi

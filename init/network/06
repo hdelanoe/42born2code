@@ -1,0 +1,5 @@
+Requete Google "configure dns file"
+Le premier lien (docs oracle) assure que le fichier /etc/resolv.conf contient la liste de tout les serveurs DNS que l'ordinateur utilise.
+Apres verification le path est bien :
+
+/etc/resolv.conf

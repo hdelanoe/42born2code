@@ -1,0 +1,8 @@
+Le repertoire /etc contient la plupart des fichiers de configuration d'un systeme UNIX.
+Le DNS doit contenir le nom de l'adresse IP localhost.
+J'execute la commande "cat /etc/* | grep localhost" pour la retrouver (127.0.0.1 en l'occurence)
+J'execute la commande "find /etc/* | xargs grep 'localhost' -sl | xargs grep '127.0.0.1' -sl" pour trouver les fichiers detenant ces deux informations.
+En procedant par elimination, et en lisant les fichiers, "hosts" detient les noms de differentes adresses IP.
+
+Le path est donc : 
+/etc/hosts

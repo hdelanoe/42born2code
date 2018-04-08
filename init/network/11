@@ -1,0 +1,2 @@
+La commande traceroute affiche la liste des adresses IP des routeurs par lesquels passent des datagrammes entre ma machine et une autre.
+La seconde (entre moi et l'exterieur) correspond a : nat-1.42.fr (10.60.1.11)

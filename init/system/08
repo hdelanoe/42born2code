@@ -1,0 +1,2 @@
+La commande ssh-keygen -t rsa permet de generer des cles RSA.
+Elle demande le path du fichier ou sauver la cle, par defaut /$USER/.ssh/id_rsa 
