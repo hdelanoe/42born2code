@@ -1,0 +1,28 @@
+MULTIPLE INPUTS:
+https://gamedev.stackexchange.com/questions/144558/key-released-multiple-keys-how-to-go-around-ncurses-limitations
+
+
+TO-DO LIST :
+
+J'ai refactor le code :
+
+Player et Projectile sont toujours des GameEntity. Player tire des Projectile et je check les collisions Player/Enemy Projectile/Enemy
+Les Enemy sont toujours GameEntity mais ils sont considéré à part pour plus de facilité. Les Enemy, si ils tirent rajoutent des Enemy à leurs stack et pas à celle des projectiles, c'est plus simple (j'avais surtout des gros crash sinon...)
+
+On peut donc facilement rajouter des arme/projectile au Player et plein de sorte d'enemy avec des pattern différents.
+Il reste a rajouter :
+
+			Un menu / une interface / display un GameOver
+			Ajouter des objets plus gros que les etoiles (a voir si on gère les collisions dessus, je sais pas si on doit les traiter comme des ennemies statiques ou non);
+			D'autres armes / Bonus /PowerUp
+
+			Implementer la vie, pour les enemies et pour les player histoire qu'ils disparaissent pas direct;
+			On peut aussi rajouter du son / des sprites d'explosion etc...
+
+			Un gros boss pourrait etre sympa
+			Après les niveaux / pattern scripté etc je pense c'est chaud
+
+Voilà je pense que c'est tout. Faut faire des test mais je pense qu'en l'état, on passe déjà le projet à l'aise. J'essayerai de venir autour de midi, je vais voir.
+Je rentre je suis claqué ;) 
+
+Ah si, faut changer le bontons d'echap pour pas qu'on quitte avec les fleches (qui envoient un caractère d'echappement) ou trouver un autre moyen de skip les fleches.
